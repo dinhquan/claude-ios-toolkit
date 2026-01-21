@@ -1,0 +1,13 @@
+{
+  "hooks": [
+    {
+      "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\.swift$\"",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "#!/bin/bash\nrg -n \"\\bprint\\(\" \"$file_path\" && echo '[Hook] Avoid print() in production Swift' >&2"
+        }
+      ]
+    }
+  ]
+}
