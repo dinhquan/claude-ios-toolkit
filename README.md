@@ -1,23 +1,22 @@
 # Claude iOS Toolkit
 
-A focused collection of Claude Code configs for modern Swift, SwiftUI, and iOS app development. This pack emphasizes clean architecture, testability, App Store readiness, and production-quality security and performance.
+A comprehensive collection of Claude Code configuration files designed for modern iOS development. This repo provides reusable agents, skills, commands, and rules that enforce architecture discipline, testability, security, and performance standards for Swift and SwiftUI apps.
 
-Use this repo as a ready-to-copy toolkit for iOS projects that need consistent engineering practices and reliable agent workflows.
-
----
-
-## What This Pack Optimizes For
-
-- Modern iOS architecture (modular MVVM + coordinator/flow router patterns)
-- SwiftUI-first UI with clear state management boundaries
-- Secure-by-default storage and networking
-- Deterministic tests with XCTest and focused XCUITest coverage
-- Production readiness (logging, privacy, CI/CD, App Store policies)
-- Maintainable code style and review discipline
+If you want a consistent, production-ready workflow for iOS projects, this pack gives you opinionated defaults and ready-to-use automation patterns.
 
 ---
 
-## Directory Map
+## What This Repo Is For
+
+- Building and evolving Swift/SwiftUI apps with a clear architectural baseline.
+- Reducing regressions with deterministic tests and review checklists.
+- Enforcing iOS security and privacy best practices.
+- Streamlining planning, refactoring, and documentation updates.
+- Providing ready-to-use MCP integrations for common iOS tooling.
+
+---
+
+## Repository Layout
 
 ```
 .
@@ -66,7 +65,7 @@ Use this repo as a ready-to-copy toolkit for iOS projects that need consistent e
 |   |-- hooks.json          # PreToolUse, PostToolUse, Stop hooks
 |
 |-- mcp-configs/      # MCP server configurations
-|   |-- mcp-servers.json    # GitHub, docs, filesystem, etc.
+|   |-- mcp-servers.json    # MCP servers for tooling
 |
 |-- plugins/          # Plugin ecosystem documentation
 |   |-- README.md           # Useful iOS tooling and plugins
@@ -81,60 +80,169 @@ Use this repo as a ready-to-copy toolkit for iOS projects that need consistent e
 
 ## Quick Start
 
-### 1) Copy what you need
+### 1) Copy the pieces you need
 
 ```bash
-# Copy agents to your Claude config
+# Agents
 cp agents/*.md ~/.claude/agents/
 
-# Copy rules
+# Rules
 cp rules/*.md ~/.claude/rules/
 
-# Copy commands
+# Commands
 cp commands/*.md ~/.claude/commands/
 
-# Copy skills
+# Skills
 cp -r skills/* ~/.claude/skills/
 ```
 
-### 2) Add hooks to settings.json
+### 2) Add hooks
 
-Copy the hooks from `hooks/hooks.json` to your `~/.claude/settings.json`.
+Copy the hooks from `hooks/hooks.json` into your `~/.claude/settings.json`.
 
 ### 3) Configure MCP servers
 
-Copy desired MCP servers from `mcp-configs/mcp-servers.json` to your `~/.claude.json`.
+Copy the servers you need from `mcp-configs/mcp-servers.json` into your `~/.claude.json` under `mcpServers`. Fill in required env vars or tokens.
 
 ---
 
-## Recommended Usage Patterns
+## What You Can Do With This Repo
 
-### Architectural Guidance
-- Start with `agents/architect.md` for new modules or complex flows.
-- Use `rules/patterns.md` and `skills/ios-patterns.md` for architectural defaults.
+### Architecture and Planning
+- Generate a structured plan before large changes.
+- Define module boundaries and data flow with the architect agent.
+- Standardize navigation and state management patterns.
 
-### Build and Test Workflow
-- Use `commands/plan.md` before multi-file changes.
-- Use `commands/tdd.md` or `skills/tdd-workflow/` for new logic.
-- Use `commands/test-coverage.md` to identify untested logic.
+### Build and Debug
+- Diagnose Xcode build issues via a dedicated agent.
+- Run targeted tests after fixes.
 
-### Security and Compliance
-- Use `agents/security-reviewer.md` before release.
-- Follow `rules/security.md` for storage, networking, and privacy.
+### Testing and Coverage
+- Use the TDD workflow to create deterministic XCTest coverage.
+- Add XCUITest coverage for critical flows only.
+- Identify coverage gaps and expand tests deliberately.
 
-### Documentation Hygiene
-- Use `agents/doc-updater.md` after behavior changes.
-- Use `commands/update-codemaps.md` for architecture refreshes.
+### Security and Privacy
+- Enforce secure storage, ATS, and logging standards.
+- Audit new changes for data leakage and policy issues.
+
+### Refactoring and Cleanup
+- Remove unused code and assets safely.
+- Simplify view hierarchies while preserving behavior.
+
+### Documentation
+- Keep README, architecture notes, and usage docs synced with code changes.
 
 ---
 
-## Design Principles
+## Agents: When to Use Them
 
-- Prefer clarity over cleverness.
-- Keep data flow explicit and observable.
-- Build for testability; avoid hidden dependencies.
-- Make UI deterministic and accessible.
-- Measure before optimizing performance.
+- `planner` for multi-step implementation plans and risk analysis.
+- `architect` for new modules or major refactors.
+- `tdd-guide` to drive new logic with tests first.
+- `code-reviewer` after code changes.
+- `security-reviewer` before release or when touching auth/storage.
+- `build-error-resolver` for build failures.
+- `e2e-runner` when validating critical UI flows.
+- `refactor-cleaner` to remove dead code and simplify.
+- `doc-updater` to align docs with actual behavior.
+
+---
+
+## Skills: Embedded Knowledge
+
+Use skills to apply guidance quickly without repeating the same patterns.
+
+- `coding-standards`: Swift style, concurrency, and error handling.
+- `ios-patterns`: Architecture, DI, storage, networking, analytics.
+- `swiftui-patterns`: SwiftUI state, layout, accessibility.
+- `project-guidelines-example`: Baseline rules for a modern app.
+- `tdd-workflow`: TDD steps and test quality standards.
+- `security-review`: Storage, networking, privacy, and App Store checks.
+
+---
+
+## Commands: Quick Execution
+
+Commands are lightweight prompts that enforce a consistent workflow.
+
+- `/plan` for multi-step feature planning.
+- `/tdd` to enforce a test-first workflow.
+- `/code-review` to check quality and security issues.
+- `/build-fix` to root-cause build failures.
+- `/test-coverage` to identify untested logic.
+- `/e2e` to design critical user flow tests.
+- `/refactor-clean` to remove unused code.
+- `/update-docs` and `/update-codemaps` for documentation hygiene.
+- `/learn` to capture lessons and decisions.
+
+---
+
+## Rules: Always-On Guardrails
+
+Rules define non-negotiable constraints for production quality.
+
+- `rules/security.md` ensures safe storage and privacy handling.
+- `rules/testing.md` requires deterministic tests for new logic.
+- `rules/performance.md` protects against main-thread abuse.
+- `rules/patterns.md` standardizes MVVM/Coordinator usage.
+- `rules/coding-style.md` defines Swift conventions.
+- `rules/git-workflow.md` enforces Conventional Commits.
+
+---
+
+## MCP Servers
+
+This repo includes MCP server definitions for common iOS tooling:
+
+- `xcodebuildmcp` for build/test/simulator automation.
+- `firebase` for Firebase CLI operations.
+- `asana` for task and project management.
+- `growthbook` for feature flags and experiments.
+- `mixpanel` for analytics operations.
+- `figma` for design file access.
+
+Edit tokens and paths in `mcp-configs/mcp-servers.json` before use.
+
+---
+
+## Hooks
+
+Hooks provide lightweight automation.
+
+Typical uses:
+- Blocking secrets or sensitive logs.
+- Warning on `print()` usage.
+- Reminding you to update tests.
+
+---
+
+## Recommended Workflow
+
+1. Use `/plan` before multi-file changes.
+2. Use `tdd-guide` or `/tdd` for new logic.
+3. Run `/code-review` and `security-reviewer` for release readiness.
+4. Update docs with `doc-updater` or `/update-docs`.
+5. Capture learnings with `/learn`.
+
+---
+
+## Conventions and Philosophy
+
+- Prefer explicit data flow and clear ownership.
+- Keep UI state and side effects separated.
+- Avoid global mutable state.
+- Test behavior, not implementation details.
+- Measure performance before optimizing.
+
+---
+
+## Troubleshooting
+
+- Build errors: use `build-error-resolver` to isolate root causes.
+- Flaky tests: check time dependencies, network usage, and global state.
+- Performance regressions: inspect heavy work on the main thread.
+- UI instability: validate accessibility identifiers and deterministic state.
 
 ---
 
