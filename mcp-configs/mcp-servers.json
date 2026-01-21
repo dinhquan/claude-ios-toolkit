@@ -2,7 +2,10 @@
   "mcpServers": {
     "github": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PAT_HERE"
       },
@@ -10,13 +13,72 @@
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@context7/mcp-server"],
+      "args": [
+        "-y",
+        "@context7/mcp-server"
+      ],
       "description": "Live documentation lookup"
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/projects"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/projects"
+      ],
       "description": "Filesystem operations (set your path)"
+    },
+    "xcodebuildmcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "xcodebuildmcp@latest"
+      ],
+      "env": {
+        "INCREMENTAL_BUILDS_ENABLED": "false",
+        "XCODEBUILDMCP_SENTRY_DISABLED": "false"
+      },
+      "description": "Xcode build, test, and simulator automation"
+    },
+    "firebase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firebase-tools@latest",
+        "mcp"
+      ],
+      "description": "Firebase CLI and project operations"
+    },
+    "mixpanel": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.mixpanel.com/mcp",
+        "--allow-http"
+      ],
+      "description": "Mixpanel analytics operations"
+    },
+    "asana": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@roychri/mcp-server-asana"
+      ],
+      "env": {
+        "ASANA_ACCESS_TOKEN": ""
+      },
+      "description": "Asana tasks and project operations"
+    },
+    "figma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=...",
+        "--stdio"
+      ],
+      "description": "Figma design file operations"
     }
   },
   "_comments": {

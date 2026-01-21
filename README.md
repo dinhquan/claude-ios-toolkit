@@ -1,4 +1,4 @@
-# Everything Claude Code - iOS Mobile Edition
+# Claude iOS Toolkit
 
 A focused collection of Claude Code configs for modern Swift, SwiftUI, and iOS app development. This pack emphasizes clean architecture, testability, App Store readiness, and production-quality security and performance.
 
