@@ -1,11 +1,17 @@
 # iOS Plan
 
-Plan a Swift/SwiftUI implementation:
+Create a plan for Swift/SwiftUI implementation that is explicit about architecture and testing.
 
-1. Identify affected targets and files
-2. Define data flow (models, view models, services)
-3. Outline UI changes and navigation
-4. Add test strategy (XCTest/XCUITest)
-5. Call out risks (migrations, permissions, threads)
+## Plan Requirements
+1. Identify affected targets, modules, and files.
+2. Describe the data flow (models, view models, services).
+3. Outline UI updates and navigation changes.
+4. Specify testing strategy (unit, integration, XCUITest).
+5. Call out risks (migrations, permissions, threading).
 
-Deliver a numbered plan with scope and tests.
+## Output Format
+- Goal
+- Scope (files/targets)
+- Step-by-step plan
+- Tests and validation
+- Risks and mitigations

@@ -1,15 +1,26 @@
 # Everything Claude Code - iOS Mobile Edition
 
-**A focused collection of Claude Code configs for Swift, SwiftUI, and iOS app development.**
+A focused collection of Claude Code configs for modern Swift, SwiftUI, and iOS app development. This pack emphasizes clean architecture, testability, App Store readiness, and production-quality security and performance.
 
-This folder mirrors the structure of the fullstack pack, tailored for mobile iOS work: Xcode builds, SwiftUI architecture, XCTest/XCUITest, and App Store readiness.
+Use this repo as a ready-to-copy toolkit for iOS projects that need consistent engineering practices and reliable agent workflows.
 
 ---
 
-## What's Inside
+## What This Pack Optimizes For
+
+- Modern iOS architecture (modular MVVM + coordinator/flow router patterns)
+- SwiftUI-first UI with clear state management boundaries
+- Secure-by-default storage and networking
+- Deterministic tests with XCTest and focused XCUITest coverage
+- Production readiness (logging, privacy, CI/CD, App Store policies)
+- Maintainable code style and review discipline
+
+---
+
+## Directory Map
 
 ```
-mobile/
+.
 |-- agents/           # Specialized subagents for iOS workflows
 |   |-- planner.md           # Feature implementation planning
 |   |-- architect.md         # App architecture decisions
@@ -70,32 +81,63 @@ mobile/
 
 ## Quick Start
 
-### 1. Copy what you need
+### 1) Copy what you need
 
 ```bash
 # Copy agents to your Claude config
-cp mobile/agents/*.md ~/.claude/agents/
+cp agents/*.md ~/.claude/agents/
 
 # Copy rules
-cp mobile/rules/*.md ~/.claude/rules/
+cp rules/*.md ~/.claude/rules/
 
 # Copy commands
-cp mobile/commands/*.md ~/.claude/commands/
+cp commands/*.md ~/.claude/commands/
 
 # Copy skills
-cp -r mobile/skills/* ~/.claude/skills/
+cp -r skills/* ~/.claude/skills/
 ```
 
-### 2. Add hooks to settings.json
+### 2) Add hooks to settings.json
 
 Copy the hooks from `hooks/hooks.json` to your `~/.claude/settings.json`.
 
-### 3. Configure MCPs
+### 3) Configure MCP servers
 
 Copy desired MCP servers from `mcp-configs/mcp-servers.json` to your `~/.claude.json`.
 
 ---
 
+## Recommended Usage Patterns
+
+### Architectural Guidance
+- Start with `agents/architect.md` for new modules or complex flows.
+- Use `rules/patterns.md` and `skills/ios-patterns.md` for architectural defaults.
+
+### Build and Test Workflow
+- Use `commands/plan.md` before multi-file changes.
+- Use `commands/tdd.md` or `skills/tdd-workflow/` for new logic.
+- Use `commands/test-coverage.md` to identify untested logic.
+
+### Security and Compliance
+- Use `agents/security-reviewer.md` before release.
+- Follow `rules/security.md` for storage, networking, and privacy.
+
+### Documentation Hygiene
+- Use `agents/doc-updater.md` after behavior changes.
+- Use `commands/update-codemaps.md` for architecture refreshes.
+
+---
+
+## Design Principles
+
+- Prefer clarity over cleverness.
+- Keep data flow explicit and observable.
+- Build for testability; avoid hidden dependencies.
+- Make UI deterministic and accessible.
+- Measure before optimizing performance.
+
+---
+
 ## Contributing
 
-If you have better iOS-specific rules, agents, or skills, contributions are welcome.
+Contributions are welcome. Additions should prioritize practical iOS guidance, explicit workflows, and modern Swift practices.

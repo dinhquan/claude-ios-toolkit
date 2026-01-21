@@ -1,10 +1,14 @@
 # iOS Test Coverage
 
-Analyze XCTest coverage:
+Analyze XCTest coverage and close gaps in critical logic.
 
-1. Run tests with coverage enabled
-2. Identify untested critical paths
-3. Add tests for business logic
-4. Prioritize stability and determinism
+## Steps
+1. Run tests with coverage enabled.
+2. Identify untested critical paths.
+3. Add tests for business logic and state transitions.
+4. Prioritize stability and determinism.
 
-Avoid UI tests unless needed for core flows.
+## Guidance
+- Favor unit and integration tests over UI tests.
+- Avoid brittle snapshot tests unless required.
+- Track coverage by module, not just overall percentage.

@@ -1,12 +1,19 @@
 # iOS Performance
 
-- Avoid heavy work on main thread
-- Use background queues for IO and parsing
-- Cache decoded images and expensive computations
-- Minimize SwiftUI view recomputation
-- Measure with Instruments before optimizing
+## Core Rules
+- Avoid heavy work on the main thread.
+- Offload IO, JSON decoding, and image processing.
+- Cache decoded images and expensive computations.
+- Use Instruments before optimizing.
 
-Red flags:
-- Layout in `body` with heavy work
-- Excessive `onAppear` network calls
-- Unbounded arrays in memory
+## SwiftUI Specific
+- Keep `body` lightweight.
+- Avoid repeated work in `onAppear`.
+- Use `task` with cancellation where possible.
+- Extract subviews to reduce recomputation.
+
+## Red Flags
+- Layout work or parsing in `body`.
+- Excessive `onAppear` network calls.
+- Unbounded arrays or caches in memory.
+- Long-running tasks without cancellation.

@@ -1,12 +1,17 @@
 # Agents
 
-Use specialized agents when:
-- Planning multi-step features -> planner
-- Designing architecture -> architect
-- Writing tests first -> tdd-guide
-- Reviewing code -> code-reviewer
-- Fixing build errors -> build-error-resolver
-- Security audit -> security-reviewer
-- Large refactors -> refactor-cleaner
-- Updating docs -> doc-updater
-- E2E flows -> e2e-runner
+Use specialized agents to keep work focused and high quality:
+
+- planner: multi-step feature planning and risk analysis
+- architect: module boundaries and data flow decisions
+- tdd-guide: XCTest-first development guidance
+- code-reviewer: review Swift/SwiftUI changes
+- build-error-resolver: fix Xcode build errors
+- security-reviewer: security and privacy audit
+- refactor-cleaner: remove dead code and simplify
+- doc-updater: sync documentation with code
+- e2e-runner: create XCUITest coverage
+
+Guidelines:
+- Prefer a specialist when a task touches architecture, testing, or security.
+- Run code-reviewer and security-reviewer before releases.

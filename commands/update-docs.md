@@ -1,9 +1,13 @@
 # Update iOS Docs
 
-Update docs for recent changes:
+Update documentation to reflect recent behavior and architecture changes.
 
-1. Identify impacted docs (README, architecture notes)
-2. Update usage, setup, and behavior details
-3. Add troubleshooting notes if needed
+## Steps
+1. Identify impacted docs (README, architecture notes, release notes).
+2. Update setup, usage, and behavior details.
+3. Add troubleshooting notes if needed.
+4. Ensure docs match the current architecture and dependencies.
 
-Keep docs concise and task-oriented.
+## Output
+- Clear, task-oriented documentation.
+- Explicit steps for build/run/test flows.
